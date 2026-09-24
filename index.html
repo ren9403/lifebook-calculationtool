@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>リン｜ライフブック ダメージ計算機</title>
+<style>
+:root{--bg:#0b1020;--panel:#151c31;--panel2:#1b2440;--text:#eef2ff;--muted:#aeb8d4;--accent:#8b7cff;--accent2:#50d6c5;--line:#2a3555;--danger:#ff7185}
+*{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,"Segoe UI","Noto Sans JP",sans-serif;background:radial-gradient(circle at top,#202a52 0,#0b1020 48%);color:var(--text);min-height:100vh}
+.wrap{max-width:1100px;margin:auto;padding:28px 18px 48px}.hero{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:20px}.eyebrow{color:#a99dff;font-weight:700;font-size:13px;letter-spacing:.08em}.hero h1{font-size:30px;margin:6px 0}.hero p{color:var(--muted);margin:0}.card{background:rgba(21,28,49,.9);border:1px solid var(--line);border-radius:18px;box-shadow:0 15px 40px #0005}.grid{display:grid;grid-template-columns:360px 1fr;gap:18px}.section{padding:20px}.section h2{font-size:17px;margin:0 0 16px}.fields{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field label{display:block;color:var(--muted);font-size:12px;margin-bottom:6px}.field.full{grid-column:1/-1}.field input{width:100%;padding:11px 12px;border-radius:10px;border:1px solid var(--line);background:#0e1528;color:var(--text);font-size:15px;outline:none}.field input:focus{border-color:var(--accent)}.chips{display:grid;gap:9px;margin-top:14px}.chip{display:flex;align-items:center;gap:10px;padding:11px 12px;border:1px solid var(--line);background:#11192d;border-radius:11px;cursor:pointer}.chip input{accent-color:var(--accent);width:17px;height:17px}.chip b{font-size:13px}.chip span{display:block;color:var(--muted);font-size:11px;margin-top:2px}.actions{display:flex;gap:10px;margin-top:16px}.btn{border:0;border-radius:10px;padding:11px 15px;font-weight:700;cursor:pointer}.primary{background:var(--accent);color:white}.secondary{background:#27314f;color:var(--text)}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.stat{padding:15px;background:#10182c;border:1px solid var(--line);border-radius:13px}.stat small{color:var(--muted);display:block}.stat strong{font-size:27px;display:block;margin-top:3px}.formula{margin-top:14px;padding:13px;border-radius:12px;background:#10182c;color:#cdd5ee;font-size:12px;line-height:1.7}.table-wrap{margin-top:18px;overflow:auto}.table-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:9px}.table-title h2{margin:0}.table-wrap table{width:100%;border-collapse:collapse;min-width:820px;font-size:12px}.table-wrap th,.table-wrap td{padding:9px 8px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}.table-wrap th:first-child,.table-wrap td:first-child{text-align:center}.table-wrap th{color:var(--muted);font-weight:600}.damage{color:#fff;font-size:14px;font-weight:800}.note{color:var(--muted);font-size:11px;margin-top:12px;line-height:1.6}@media(max-width:800px){.grid{grid-template-columns:1fr}.hero{align-items:start}.stats{grid-template-columns:1fr}.fields{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <div><div class="eyebrow">ASTRAL PARTY · DAMAGE CALCULATOR</div><h1>リン：ライフブック</h1><p>スタック・マーク・チップ・フェイト・エコーをまとめて計算</p></div>
+  </header>
+
+  <div class="grid">
+    <section class="card section">
+      <h2>基本設定</h2>
+      <div class="fields">
+        <div class="field"><label>開始時ブックスタック</label><input id="book" type="number" min="0" value="0"></div>
+        <div class="field"><label>開始時マーク数</label><input id="mark" type="number" min="0" value="0"></div>
+        <div class="field"><label>ライフブック使用回数</label><input id="uses" type="number" min="1" value="5"></div>
+        <div class="field"><label>対象の防御値</label><input id="def" type="number" min="0" value="0"></div>
+        <div class="field full"><label>特殊ダメージ軽減</label><input id="reduce" type="number" min="0" value="0"></div>
+      </div>
+
+      <h2 style="margin-top:22px">チップ・効果</h2>
+      <div class="chips">
+        <label class="chip"><input id="shuriken" type="checkbox"><div><b>忍者手裏剣</b><span>現在のマーク数をダメージに加算</span></div></label>
+        <label class="chip"><input id="bookmark" type="checkbox"><div><b>しおり</b><span>ダメージ +1</span></div></label>
+        <label class="chip"><input id="gun" type="checkbox"><div><b>貫通の銃</b><span>対象の防御値をダメージに加算</span></div></label>
+        <label class="chip"><input id="spray" type="checkbox"><div><b>スプレー缶</b><span>使用後のマークを +2</span></div></label>
+        <label class="chip"><input id="fate" type="checkbox"><div><b>カイセイ：フェイト・エコー</b><span>与えるダメージ +1</span></div></label>
+      </div>
+      <div class="actions"><button class="btn primary" onclick="calc()">計算する</button><button class="btn secondary" onclick="resetAll()">リセット</button></div>
+    </section>
+
+    <section class="card section">
+      <h2>結果</h2>
+      <div class="stats">
+        <div class="stat"><small>合計ダメージ</small><strong id="total">0</strong></div>
+        <div class="stat"><small>最終ブックスタック</small><strong id="finalBook">0</strong></div>
+        <div class="stat"><small>最終マーク数</small><strong id="finalMark">0</strong></div>
+      </div>
+      <div class="formula">
+        <b>1回のダメージ</b><br>
+        (2 + ブックスタック) ＋ マークありなら1 ＋ 手裏剣なら現在マーク数 ＋ しおり1 ＋ 貫通の銃なら防御値 ＋ フェイト・エコー1 − 特殊軽減
+      </div>
+
+      <div class="table-wrap">
+        <div class="table-title"><h2>各回の内訳</h2><span id="summary" style="color:var(--muted);font-size:12px"></span></div>
+        <table><thead><tr>
+          <th>回</th><th>使用前ブック</th><th>使用前マーク</th><th>基本</th><th>マーク+1</th><th>手裏剣</th><th>しおり</th><th>貫通</th><th>フェイト</th><th>軽減</th><th>ダメージ</th><th>使用後マーク</th>
+        </tr></thead><tbody id="rows"></tbody></table>
+      </div>
+      <div class="note">※ ダメージは0未満にならないものとして計算しています。マークによる +1 と、忍者手裏剣による「現在マーク数」の加算は別々に適用されます。</div>
+    </section>
+  </div>
+</div>
+<script>
+function n(id){return Math.max(0,Number(document.getElementById(id).value)||0)}
+function checked(id){return document.getElementById(id).checked}
+function calc(){
+ let book=n("book"), mark=n("mark"), uses=Math.max(1,Math.floor(n("uses"))), def=n("def"), red=n("reduce");
+ const sh=checked("shuriken"), bm=checked("bookmark"), gun=checked("gun"), spray=checked("spray"), fate=checked("fate");
+ let total=0, rows="";
+ for(let i=1;i<=uses;i++){
+   const beforeBook=book,beforeMark=mark;
+   const base=2+book;
+   const marked=mark>0?1:0;
+   const shv=sh?mark:0, bmv=bm?1:0, gd=gun?def:0, fv=fate?1:0;
+   const dmg=Math.max(0,base+marked+shv+bmv+gd+fv-red);
+   const afterMark=mark+(spray?2:1);
+   total+=dmg;
+   rows+=`<tr><td>${i}</td><td>${beforeBook}</td><td>${beforeMark}</td><td>${base}</td><td>${marked}</td><td>${shv}</td><td>${bmv}</td><td>${gd}</td><td>${fv}</td><td>${red}</td><td class="damage">${dmg}</td><td>${afterMark}</td></tr>`;
+   book++; mark=afterMark;
+ }
+ document.getElementById("total").textContent=total;
+ document.getElementById("finalBook").textContent=book;
+ document.getElementById("finalMark").textContent=mark;
+ document.getElementById("rows").innerHTML=rows;
+ document.getElementById("summary").textContent=`${uses}回使用`;
+}
+function resetAll(){
+ document.getElementById("book").value=0;document.getElementById("mark").value=0;document.getElementById("uses").value=5;document.getElementById("def").value=0;document.getElementById("reduce").value=0;
+ ["shuriken","bookmark","gun","spray","fate"].forEach(id=>document.getElementById(id).checked=false);calc();
+}
+document.querySelectorAll("input").forEach(e=>e.addEventListener("input",calc));
+calc();
+</script>
+</body>
+</html>
