@@ -7,7 +7,9 @@
 <style>
 :root{--bg:#0b1020;--panel:#151c31;--panel2:#1b2440;--text:#eef2ff;--muted:#aeb8d4;--accent:#8b7cff;--accent2:#50d6c5;--line:#2a3555;--danger:#ff7185}
 *{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,"Segoe UI","Noto Sans JP",sans-serif;background:radial-gradient(circle at top,#202a52 0,#0b1020 48%);color:var(--text);min-height:100vh}
-.wrap{max-width:1100px;margin:auto;padding:28px 18px 48px}.hero{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:20px}.eyebrow{color:#a99dff;font-weight:700;font-size:13px;letter-spacing:.08em}.hero h1{font-size:30px;margin:6px 0}.hero p{color:var(--muted);margin:0}.card{background:rgba(21,28,49,.9);border:1px solid var(--line);border-radius:18px;box-shadow:0 15px 40px #0005}.grid{display:grid;grid-template-columns:360px 1fr;gap:18px}.section{padding:20px}.section h2{font-size:17px;margin:0 0 16px}.fields{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field label{display:block;color:var(--muted);font-size:12px;margin-bottom:6px}.field.full{grid-column:1/-1}.field input{width:100%;padding:11px 12px;border-radius:10px;border:1px solid var(--line);background:#0e1528;color:var(--text);font-size:15px;outline:none}.field input:focus{border-color:var(--accent)}.chips{display:grid;gap:9px;margin-top:14px}.chip{display:flex;align-items:center;gap:10px;padding:11px 12px;border:1px solid var(--line);background:#11192d;border-radius:11px;cursor:pointer}.chip input{accent-color:var(--accent);width:17px;height:17px}.chip b{font-size:13px}.chip span{display:block;color:var(--muted);font-size:11px;margin-top:2px}.actions{display:flex;gap:10px;margin-top:16px}.btn{border:0;border-radius:10px;padding:11px 15px;font-weight:700;cursor:pointer}.primary{background:var(--accent);color:white}.secondary{background:#27314f;color:var(--text)}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.stat{padding:15px;background:#10182c;border:1px solid var(--line);border-radius:13px}.stat small{color:var(--muted);display:block}.stat strong{font-size:27px;display:block;margin-top:3px}.formula{margin-top:14px;padding:13px;border-radius:12px;background:#10182c;color:#cdd5ee;font-size:12px;line-height:1.7}.table-wrap{margin-top:18px;overflow:auto}.table-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:9px}.table-title h2{margin:0}.table-wrap table{width:100%;border-collapse:collapse;min-width:820px;font-size:12px}.table-wrap th,.table-wrap td{padding:9px 8px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}.table-wrap th:first-child,.table-wrap td:first-child{text-align:center}.table-wrap th{color:var(--muted);font-weight:600}.damage{color:#fff;font-size:14px;font-weight:800}.note{color:var(--muted);font-size:11px;margin-top:12px;line-height:1.6}@media(max-width:800px){.grid{grid-template-columns:1fr}.hero{align-items:start}.stats{grid-template-columns:1fr}.fields{grid-template-columns:1fr}}
+.wrap{max-width:1100px;margin:auto;padding:28px 18px 48px}.hero{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:20px}.eyebrow{color:#a99dff;font-weight:700;font-size:13px;letter-spacing:.08em}.hero h1{font-size:30px;margin:6px 0}.hero p{color:var(--muted);margin:0}.card{background:rgba(21,28,49,.9);border:1px solid var(--line);border-radius:18px;box-shadow:0 15px 40px #0005}.grid{display:grid;grid-template-columns:360px 1fr;gap:18px}.section{padding:20px}.section h2{font-size:17px;margin:0 0 16px}.fields{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field label{display:block;color:var(--muted);font-size:12px;margin-bottom:6px}.field.full{grid-column:1/-1}.field input{width:100%;padding:11px 12px;border-radius:10px;border:1px solid var(--line);background:#0e1528;color:var(--text);font-size:15px;outline:none}.field input:focus{border-color:var(--accent)}.chips{display:grid;gap:9px;margin-top:14px}.chip{display:flex;align-items:center;gap:10px;padding:11px 12px;border:1px solid var(--line);background:#11192d;border-radius:11px;cursor:pointer}.chip input{accent-color:var(--accent);width:17px;height:17px}.chip b{font-size:13px}.chip span{display:block;color:var(--muted);font-size:11px;margin-top:2px}.actions{display:flex;gap:10px;margin-top:16px}.btn{border:0;border-radius:10px;padding:11px 15px;font-weight:700;cursor:pointer}.primary{background:var(--accent);color:white}.secondary{background:#27314f;color:var(--text)}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.stat{padding:15px;background:#10182c;border:1px solid var(--line);border-radius:13px}.stat small{color:var(--muted);display:block}.stat strong{font-size:27px;display:block;margin-top:3px}.formula{margin-top:14px;padding:13px;border-radius:12px;background:#10182c;color:#cdd5ee;font-size:12px;line-height:1.7}.table-wrap{margin-top:18px;overflow:auto}.table-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:9px}.table-title h2{margin:0}.table-wrap table{width:100%;border-collapse:collapse;min-width:820px;font-size:12px}.table-wrap th,.table-wrap td{padding:9px 8px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}.table-wrap th:first-child,.table-wrap td:first-child{text-align:center}.table-wrap th{color:var(--muted);font-weight:600}.damage{color:#fff;font-size:14px;font-weight:800}.note{color:var(--muted);font-size:11px;margin-top:12px;line-height:1.6}@media(max-width:800px){
+.wrap{padding:16px 10px 32px}.hero{display:block;margin-bottom:14px}.hero h1{font-size:24px}.grid{grid-template-columns:1fr;gap:12px}.section{padding:15px}.fields{grid-template-columns:1fr;gap:9px}.field.full{grid-column:auto}.stats{grid-template-columns:1fr 1fr 1fr;gap:7px}.stat{padding:10px 8px;text-align:center}.stat small{font-size:10px}.stat strong{font-size:22px}.chips{gap:7px}.chip{padding:10px}.actions{position:sticky;bottom:8px;z-index:5;background:rgba(21,28,49,.94);padding-top:8px}.table-wrap{overflow:visible}.table-title{margin-top:18px}.table-wrap table{min-width:0;display:block}.table-wrap thead{display:none}.table-wrap tbody{display:block}.table-wrap tr{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;margin-bottom:9px;padding:8px;background:#10182c;border:1px solid var(--line);border-radius:12px}.table-wrap td{display:flex;justify-content:space-between;align-items:center;border:0;padding:5px 6px;text-align:right;white-space:normal}.table-wrap td::before{content:attr(data-label);color:var(--muted);font-size:10px;text-align:left;margin-right:5px}.table-wrap td:first-child{text-align:right}.table-wrap td:first-child::before{content:"回"}.table-wrap .damage{font-size:15px}}
+@media(max-width:430px){.stats{grid-template-columns:1fr}.stat{display:flex;align-items:center;justify-content:space-between;text-align:left}.stat strong{font-size:24px}.table-wrap tr{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
@@ -25,15 +27,18 @@
         <div class="field"><label>ライフブック使用回数</label><input id="uses" type="number" min="1" value="5"></div>
         <div class="field"><label>対象の防御値</label><input id="def" type="number" min="0" value="0"></div>
         <div class="field full"><label>特殊ダメージ軽減</label><input id="reduce" type="number" min="0" value="0"></div>
+        <div class="field"><label>特殊ダメージ増加</label><input id="increase" type="number" min="0" value="0"></div>
+        <div class="field full"><label>対象ボス</label><select id="boss"><option value="none">指定なし</option><option value="mayume">天川真夢梓（ダメージを受けるたび軽減+2）</option><option value="center">指揮センター（ダメージを受けるたび増加+1）</option></select></div>
       </div>
 
       <h2 style="margin-top:22px">チップ・効果</h2>
       <div class="chips">
-        <label class="chip"><input id="shuriken" type="checkbox"><div><b>忍者手裏剣</b><span>現在のマーク数をダメージに加算</span></div></label>
-        <label class="chip"><input id="bookmark" type="checkbox"><div><b>しおり</b><span>ダメージ +1</span></div></label>
-        <label class="chip"><input id="gun" type="checkbox"><div><b>貫通の銃</b><span>対象の防御値をダメージに加算</span></div></label>
         <label class="chip"><input id="spray" type="checkbox"><div><b>スプレー缶</b><span>使用後のマークを +2</span></div></label>
+        <label class="chip"><input id="shuriken" type="checkbox"><div><b>忍者手裏剣</b><span>現在のマーク数をダメージに加算</span></div></label>
+        <label class="chip"><input id="arrowbag" type="checkbox"><div><b>魔法の矢袋</b><span>マーク付き相手への最初の1回だけ、先にマーク +1</span></div></label>
+        <label class="chip"><input id="bookmark" type="checkbox"><div><b>しおり</b><span>ダメージ +1</span></div></label>
         <label class="chip"><input id="fate" type="checkbox"><div><b>カイセイ：フェイト・エコー</b><span>与えるダメージ +1</span></div></label>
+        <label class="chip"><input id="gun" type="checkbox"><div><b>貫通の銃　※御魂の祭限定</b><span>対象の防御値をダメージに加算</span></div></label>
       </div>
       <div class="actions"><button class="btn primary" onclick="calc()">計算する</button><button class="btn secondary" onclick="resetAll()">リセット</button></div>
     </section>
@@ -47,16 +52,16 @@
       </div>
       <div class="formula">
         <b>1回のダメージ</b><br>
-        (2 + ブックスタック) ＋ マークありなら1 ＋ 手裏剣なら現在マーク数 ＋ しおり1 ＋ 貫通の銃なら防御値 ＋ フェイト・エコー1 − 特殊軽減
+        魔法の矢袋 → (2 + ブックスタック) ＋ マークありなら1 ＋ 手裏剣なら処理後マーク数 ＋ しおり1 ＋ 貫通の銃なら防御値 ＋ フェイト・エコー1 ＋ 特殊増加 − 特殊軽減 ＋ ボス補正（天川真夢梓：被ダメージ後に軽減+2／指揮センター：被ダメージ後に増加+1）
       </div>
 
       <div class="table-wrap">
         <div class="table-title"><h2>各回の内訳</h2><span id="summary" style="color:var(--muted);font-size:12px"></span></div>
         <table><thead><tr>
-          <th>回</th><th>使用前ブック</th><th>使用前マーク</th><th>基本</th><th>マーク+1</th><th>手裏剣</th><th>しおり</th><th>貫通</th><th>フェイト</th><th>軽減</th><th>ダメージ</th><th>使用後マーク</th>
+          <th>回</th><th>使用前ブック</th><th>使用前マーク</th><th>矢袋</th><th>処理後マーク</th><th>基本</th><th>マーク+1</th><th>手裏剣</th><th>しおり</th><th>貫通</th><th>フェイト</th><th>軽減</th><th>増加</th><th>ボス</th><th>ダメージ</th><th>使用後マーク</th>
         </tr></thead><tbody id="rows"></tbody></table>
       </div>
-      <div class="note">※ ダメージは0未満にならないものとして計算しています。マークによる +1 と、忍者手裏剣による「現在マーク数」の加算は別々に適用されます。</div>
+      <div class="note">※ ダメージは0未満にならないものとして計算しています。マークによる +1 と、忍者手裏剣による「現在マーク数」の加算は別々に適用されます。魔法の矢袋は同じターン内の最初の「マーク付き対象への効果カード使用」に1度だけ発動し、+1マークを忍者手裏剣より先に反映します。天川真夢梓は各回-2、指揮センターは各回+1です。</div>
     </section>
   </div>
 </div>
@@ -64,18 +69,27 @@
 function n(id){return Math.max(0,Number(document.getElementById(id).value)||0)}
 function checked(id){return document.getElementById(id).checked}
 function calc(){
- let book=n("book"), mark=n("mark"), uses=Math.max(1,Math.floor(n("uses"))), def=n("def"), red=n("reduce");
- const sh=checked("shuriken"), bm=checked("bookmark"), gun=checked("gun"), spray=checked("spray"), fate=checked("fate");
- let total=0, rows="";
+ let book=n("book"), mark=n("mark"), uses=Math.max(1,Math.floor(n("uses"))), def=n("def"), red=n("reduce"), inc=n("increase");
+ const boss=document.getElementById("boss").value;
+ const sh=checked("shuriken"), bm=checked("bookmark"), gun=checked("gun"), spray=checked("spray"), fate=checked("fate"), arrowbag=checked("arrowbag");
+ let total=0, rows="", arrowUsed=false, bossReduction=0, bossIncrease=0;
  for(let i=1;i<=uses;i++){
    const beforeBook=book,beforeMark=mark;
+   // 魔法の矢袋は、マーク付き相手への最初の1回だけ、忍者手裏剣の処理より先にマーク+1
+   const arrowApplied=arrowbag && !arrowUsed && mark>0;
+   if(arrowApplied){ mark+=1; arrowUsed=true; }
+   const processedMark=mark;
    const base=2+book;
    const marked=mark>0?1:0;
    const shv=sh?mark:0, bmv=bm?1:0, gd=gun?def:0, fv=fate?1:0;
-   const dmg=Math.max(0,base+marked+shv+bmv+gd+fv-red);
+   const bossMod=boss==="mayume"?-bossReduction:boss==="center"?bossIncrease:0;
+   const dmg=Math.max(0,base+marked+shv+bmv+gd+fv-red+inc+bossMod);
    const afterMark=mark+(spray?2:1);
    total+=dmg;
-   rows+=`<tr><td>${i}</td><td>${beforeBook}</td><td>${beforeMark}</td><td>${base}</td><td>${marked}</td><td>${shv}</td><td>${bmv}</td><td>${gd}</td><td>${fv}</td><td>${red}</td><td class="damage">${dmg}</td><td>${afterMark}</td></tr>`;
+   // ボス効果は「ダメージを受けた後」に次回分へ加算
+   if(boss==="mayume") bossReduction+=2;
+   if(boss==="center") bossIncrease+=1;
+   rows+=`<tr><td>${i}</td><td data-label="使用前ブック">${beforeBook}</td><td data-label="使用前マーク">${beforeMark}</td><td data-label="矢袋">${arrowApplied?"+1":"-"}</td><td data-label="処理後マーク">${processedMark}</td><td data-label="基本">${base}</td><td data-label="マーク+1">${marked}</td><td data-label="手裏剣">${shv}</td><td data-label="しおり">${bmv}</td><td data-label="貫通">${gd}</td><td data-label="フェイト">${fv}</td><td data-label="軽減">${red}</td><td data-label="増加">${inc}</td><td data-label="ボス">${bossMod>0?`+${bossMod}`:bossMod<0?`${bossMod}`:"-"}</td><td data-label="ダメージ" class="damage">${dmg}</td><td data-label="使用後マーク">${afterMark}</td></tr>`;
    book++; mark=afterMark;
  }
  document.getElementById("total").textContent=total;
@@ -85,8 +99,8 @@ function calc(){
  document.getElementById("summary").textContent=`${uses}回使用`;
 }
 function resetAll(){
- document.getElementById("book").value=0;document.getElementById("mark").value=0;document.getElementById("uses").value=5;document.getElementById("def").value=0;document.getElementById("reduce").value=0;
- ["shuriken","bookmark","gun","spray","fate"].forEach(id=>document.getElementById(id).checked=false);calc();
+ document.getElementById("book").value=0;document.getElementById("mark").value=0;document.getElementById("uses").value=5;document.getElementById("def").value=0;document.getElementById("reduce").value=0;document.getElementById("increase").value=0;document.getElementById("boss").value="none";
+ ["spray","shuriken","arrowbag","bookmark","fate","gun"].forEach(id=>document.getElementById(id).checked=false);calc();
 }
 document.querySelectorAll("input").forEach(e=>e.addEventListener("input",calc));
 calc();
