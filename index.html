@@ -36,7 +36,7 @@
         <label class="chip"><input id="spray" type="checkbox"><div><b>スプレー缶</b><span>使用後のマークを +2</span></div></label>
         <label class="chip"><input id="shuriken" type="checkbox"><div><b>忍者手裏剣</b><span>現在のマーク数をダメージに加算</span></div></label>
         <label class="chip"><input id="arrowbag" type="checkbox"><div><b>魔法の矢袋</b><span>マーク付き相手への最初の1回だけ、先にマーク +1</span></div></label>
-        <label class="chip"><input id="bookmark" type="checkbox"><div><b>しおり</b><span>ダメージ +1</span></div></label>
+        <label class="chip"><input id="bookmark" type="checkbox"><div><b>しおり</b><span>ダメージ +2</span></div></label>
         <label class="chip"><input id="fate" type="checkbox"><div><b>カイセイ：フェイト・エコー</b><span>与えるダメージ +1</span></div></label>
         <label class="chip"><input id="gun" type="checkbox"><div><b>貫通の銃　※御魂の祭限定</b><span>対象の防御値をダメージに加算</span></div></label>
       </div>
@@ -52,7 +52,7 @@
       </div>
       <div class="formula">
         <b>1回のダメージ</b><br>
-        魔法の矢袋 → (2 + ブックスタック) ＋ マークありなら1 ＋ 手裏剣なら処理後マーク数 ＋ しおり1 ＋ 貫通の銃なら防御値 ＋ フェイト・エコー1 ＋ 特殊増加 − 特殊軽減 ＋ ボス補正（天川真夢梓：被ダメージ後に軽減+2／指揮センター：被ダメージ後に増加+1）
+        魔法の矢袋 → (2 + ブックスタック) ＋ マークありなら1 ＋ 手裏剣なら処理後マーク数 ＋ しおり2 ＋ 貫通の銃なら防御値 ＋ フェイト・エコー1 ＋ 特殊増加 − 特殊軽減 ＋ ボス補正（天川真夢梓：被ダメージ後に軽減+2／指揮センター：被ダメージ後に増加+1）
       </div>
 
       <div class="table-wrap">
@@ -61,7 +61,7 @@
           <th>回</th><th>使用前ブック</th><th>使用前マーク</th><th>矢袋</th><th>処理後マーク</th><th>基本</th><th>マーク+1</th><th>手裏剣</th><th>しおり</th><th>貫通</th><th>フェイト</th><th>軽減</th><th>増加</th><th>ボス</th><th>ダメージ</th><th>使用後マーク</th>
         </tr></thead><tbody id="rows"></tbody></table>
       </div>
-      <div class="note">※ ダメージは0未満にならないものとして計算しています。マークによる +1 と、忍者手裏剣による「現在マーク数」の加算は別々に適用されます。魔法の矢袋は同じターン内の最初の「マーク付き対象への効果カード使用」に1度だけ発動し、+1マークを忍者手裏剣より先に反映します。天川真夢梓は各回-2、指揮センターは各回+1です。</div>
+      <div class="note">※ ダメージは0未満にならないものとして計算しています。マークによる +1 と、忍者手裏剣による「現在マーク数」の加算は別々に適用されます。魔法の矢袋は同じターン内の最初の「マーク付き対象への効果カード使用」に1度だけ発動し、+1マークを忍者手裏剣より先に反映します。天川真夢梓はダメージを受けるたび次回以降の軽減が2増加し、指揮センターはダメージを受けるたび次回以降の増加が1増加します。しおりのダメージ加算は+2です。</div>
     </section>
   </div>
 </div>
@@ -81,7 +81,7 @@ function calc(){
    const processedMark=mark;
    const base=2+book;
    const marked=mark>0?1:0;
-   const shv=sh?mark:0, bmv=bm?1:0, gd=gun?def:0, fv=fate?1:0;
+   const shv=sh?mark:0, bmv=bm?2:0, gd=gun?def:0, fv=fate?1:0;
    const bossMod=boss==="mayume"?-bossReduction:boss==="center"?bossIncrease:0;
    const dmg=Math.max(0,base+marked+shv+bmv+gd+fv-red+inc+bossMod);
    const afterMark=mark+(spray?2:1);
